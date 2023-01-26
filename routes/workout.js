@@ -7,10 +7,14 @@ const {createWorkout,
         updateWorkout
         } = require ('../controllers/workoutControllers')
 
+const requireAuth = require('../middleware/requireAuth')
+
 const express = require('express')
 
 const router = express.Router()
 
+//require auth for all workout routes
+router.use(requireAuth)
 
 //get all workouts
 router.get('/',getWorkouts)
